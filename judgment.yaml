@@ -1,0 +1,40 @@
+# Judgment Layer — Miami AI Lab
+#
+# Learned priorities and decision rules applied silently across all sessions.
+# Rules are proposed during /meditate and require explicit approval.
+# This file grows over time — it IS the accumulated expression of how Mario makes decisions.
+#
+# Categories:
+#   priorities   — When tasks conflict, apply this ordering
+#   escalation   — Always surface specific items urgently
+#   overrides    — Break standard behavior in specific situations
+#   surfacing    — Always include X in morning brief / session start
+
+last_updated: "2026-02-25"
+
+priorities:
+  - label: "Investor communications first"
+    rank: 1
+    rule: "Investor emails and messages always take priority over all other inbox items"
+    source: "Initial setup, 2026-02-25"
+
+  - label: "Family time is non-negotiable"
+    rank: 2
+    rule: "Never schedule or accept commitments that conflict with family dinner (home by 6:30 PM) or Sunday ward responsibilities"
+    source: "Initial setup, 2026-02-25"
+
+escalation:
+  - label: "Term sheet activity"
+    rule: "Any communication mentioning term sheets, investment amounts, or closing timelines is always Tier 1"
+    source: "Initial setup, 2026-02-25"
+
+overrides: []
+
+surfacing:
+  - label: "Runway awareness"
+    rule: "In every morning brief, include a one-line runway status if cash position is tracked"
+    source: "Initial setup, 2026-02-25"
+
+  - label: "Stale investor relationships"
+    rule: "Flag any investor in active pipeline stages (First Meeting through Legal) with decelerating contact velocity"
+    source: "Initial setup, 2026-02-25"

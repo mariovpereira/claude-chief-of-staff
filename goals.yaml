@@ -1,4 +1,4 @@
-# Goals — Your Quarterly Objectives
+# Goals -- Miami AI Lab Quarterly Objectives
 #
 # This file is the source of truth for "what should I be working on?"
 # Claude references it constantly when prioritizing your time,
@@ -14,45 +14,63 @@
 #   - Claude will flag when progress stalls
 
 quarter: "Q1 2026"
-last_updated: "2026-01-01"
+last_updated: "2026-02-25"
 
 objectives:
-  - name: "Example: Launch new product feature"
-    target: "Ship to 100% of users by end of Q1"
+  - name: "Close Pre-Seed Round"
+    target: "$450K raise (under review -- may go leaner per Roberto Suris advice)"
     priority: 1
     key_results:
-      - "Feature spec complete by Jan 31"
-      - "Beta with 10 customers by Feb 28"
-      - "Full rollout by Mar 31"
-    progress: 0.0
-    status: "on_track"   # on_track | at_risk | behind | complete
-    notes: ""
+      - "Finalize pitch deck and data room by mid-February"
+      - "Have 15+ investor conversations by end of February"
+      - "Receive at least 2 term sheets by end of March"
+      - "Close round by end of Q1"
+    progress: 0.3
+    status: "in_progress"   # on_track | at_risk | behind | complete | in_progress | pending
+    notes: "Roberto Suris challenged the $450K target -- revisiting assumptions on what is truly needed. May go leaner to preserve optionality and reduce dilution."
 
-  - name: "Example: Grow revenue 30%"
-    target: "$X pipeline by end of quarter"
+  - name: "Incorporate Miami AI Lab"
+    target: "Legal entity formed and operational"
     priority: 2
     key_results:
-      - "Hire 2 sales reps by Feb 15"
-      - "Launch outbound motion by Feb 28"
-      - "Close 5 new enterprise deals by Mar 31"
+      - "Choose entity type (Delaware C-Corp likely)"
+      - "File incorporation documents"
+      - "Set up bank account and basic financial infrastructure"
+      - "Establish founder equity split with Alan"
     progress: 0.0
-    status: "on_track"
-    notes: ""
+    status: "pending"
+    notes: "Prerequisite for closing any fundraise. Should be prioritized soon."
 
-  - name: "Example: Build high-performing team"
-    target: "Complete hiring plan and establish rituals"
+  - name: "Ship FrontPulse MVP"
+    target: "Working prototype demonstrating core value proposition"
     priority: 3
     key_results:
-      - "Fill 3 open roles by Feb 28"
-      - "Launch weekly team sync and monthly retrospective"
-      - "Complete first round of performance reviews"
-    progress: 0.0
-    status: "on_track"
+      - "Define MVP scope (camera pipeline + AR transformation + conversational AI)"
+      - "Build core orchestration layer"
+      - "Demo to 3-5 potential customers or partners"
+      - "Collect feedback for iteration"
+    progress: 0.2
+    status: "in_progress"
+    notes: "Alan leading technical implementation with AI agent augmentation."
+
+  - name: "Build Miami Tech Network"
+    target: "Establish Miami AI Lab presence in local ecosystem"
+    priority: 4
+    key_results:
+      - "Attend 5+ Miami tech and AI events"
+      - "Build relationships with 10+ local founders and investors"
+      - "Identify potential advisors beyond Roberto"
+    progress: 0.1
+    status: "in_progress"
     notes: ""
 
-# Personal goals (optional — Claude respects work-life balance)
+# Personal goals -- Claude respects work-life balance
 personal:
-  - name: "Example: Exercise 4x per week"
+  - name: "Exercise regularly (maintain physical energy for founder grind)"
     progress: 0.0
-  - name: "Example: Read 12 books this year"
+  - name: "Ward/church responsibilities maintained (non-negotiable)"
+    progress: 0.0
+  - name: "Family time protected (home by 6:30 PM daily)"
+    progress: 0.0
+  - name: "Work on Starting from Zero book notes weekly"
     progress: 0.0

@@ -7,7 +7,7 @@ you open your inbox.
 
 ## Instructions
 
-You are running the morning briefing for {{YOUR_NAME}}. Follow these steps
+You are running the morning briefing for Mario. Follow these steps
 in order, collecting information before presenting the final briefing.
 
 ### Step 0: Get Current Time

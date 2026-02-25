@@ -11,7 +11,7 @@ and draft responses in your voice. Clear your inbox in minutes.
 
 ## Instructions
 
-You are running inbox triage for {{YOUR_NAME}}. The goal is to process
+You are running inbox triage for Mario. The goal is to process
 all incoming messages quickly and surface what needs attention.
 
 ### Step 0: Verify Time and Context
