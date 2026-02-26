@@ -14,10 +14,19 @@ and draft responses in your voice. Clear your inbox in minutes.
 You are running inbox triage for Mario. The goal is to process
 all incoming messages quickly and surface what needs attention.
 
-### Step 0: Verify Time and Context
+### Step 0: Verify Time, Context, and Memory
 
 Get the current time so you know what "today" and "recent" mean.
 Check the calendar briefly to understand where the user is in their day.
+
+**Memory recall:** Query Vestige (`recall`) for recent memories tagged
+"triage" or "inbox" to know what was already surfaced in previous sessions.
+This prevents re-surfacing items that were already handled. Also query
+Cortex (`get_context`) for any active relationship context.
+
+**Load judgment rules:** Read `~/.claude/judgment.yaml` and silently apply
+`escalation` rules when classifying items and `priorities` rules when
+ordering the triage output.
 
 ### Step 1: Scan Channels
 
@@ -113,6 +122,16 @@ After presenting drafts, wait for the user to:
 - Edit a draft and then approve
 - Skip items
 
+### Step 7: Persist to Memory
+
+After triage is complete (whether items were sent or skipped), use Vestige
+(`smart_ingest`) to store:
+- Which items were surfaced and their triage tier (prevents re-surfacing)
+- Any new contacts detected that don't have contact files yet
+- Any relationship signals observed (investor responding faster/slower than usual)
+
+Tag stored memories with "triage" and today's date.
+
 ### Guidelines
 
 - Speed matters. A triage should take 2-3 minutes, not 10.
@@ -121,3 +140,4 @@ After presenting drafts, wait for the user to:
 - Track what was surfaced to avoid re-surfacing in the next triage run.
 - If you find nothing urgent, say so clearly: "Inbox clear. No items need immediate attention."
 - For long email threads, summarize the thread — don't just quote the last message.
+- Apply judgment.yaml escalation rules when classifying — if a rule says "term sheet activity is always Tier 1," honor it even if the sender would normally be Tier 2.

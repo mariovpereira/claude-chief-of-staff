@@ -10,7 +10,17 @@ you open your inbox.
 You are running the morning briefing for Mario. Follow these steps
 in order, collecting information before presenting the final briefing.
 
-### Step 0: Get Current Time
+### Step 0: Load Context and Get Current Time
+
+**Memory recall:** Before anything else, query Vestige (`recall`) for any
+recent memories tagged with "morning-brief", "priorities", or "urgent".
+Also query Cortex (`get_context`) for the current project context. This
+ensures continuity from previous sessions — the Chief of Staff remembers
+what mattered yesterday.
+
+**Load judgment rules:** Read `~/.claude/judgment.yaml` and silently apply
+all `surfacing` rules to this briefing and all `priorities` rules to the
+focus recommendation.
 
 Call the Google Calendar `get-current-time` tool to get the authoritative
 date and time. Extract the day of week, date, and timezone. Never guess
@@ -84,11 +94,20 @@ Based on your calendar and priorities, here's what I'd focus on today:
 3. [Third priority, if time allows]
 ```
 
+### Step 6: Persist to Memory
+
+After presenting the briefing, use Vestige (`smart_ingest`) to store:
+- Any Tier 1 items surfaced (so they are not re-surfaced tomorrow if handled)
+- The focus recommendation (so future sessions can check if it was followed)
+- Any stalled goals or overdue tasks flagged (builds pattern detection over time)
+
+Tag stored memories with "morning-brief" and today's date.
+
 ### Guidelines
 
 - Be concise. The whole briefing should fit on one screen.
 - Lead with the most important information.
 - If there are no urgent items, say so — that's good news.
-- The focus recommendation should reflect goal alignment.
+- The focus recommendation should reflect goal alignment and judgment.yaml priorities.
 - If today's calendar is misaligned with goals, say so explicitly.
 - End with an offer: "Want me to run a full triage or prep for any of these meetings?"

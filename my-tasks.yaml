@@ -1,4 +1,4 @@
-# Tasks — Your Active Task List
+# Tasks — Miami AI Lab Active Task List
 #
 # Claude checks this file at the start of every session.
 # Tasks approaching their due date will be flagged.
@@ -7,27 +7,103 @@
 # Status: pending | in_progress | blocked | complete
 # Priority: 1 (urgent) | 2 (high) | 3 (normal) | 4 (low)
 
-tasks: []
+tasks:
+  - id: "task-001"
+    title: "Paste real email examples into CLAUDE.md writing style section"
+    description: "Open CLAUDE.md Part 4, paste 2-3 real sent emails (casual, professional, handling pushback) to calibrate voice drafting"
+    status: "pending"
+    priority: 1
+    due_date: "2026-02-28"
+    goal_alignment: "operational-setup"
+    created: "2026-02-25"
+    notes: "Highest-leverage remaining customization for the Chief of Staff system"
 
-# Example task format:
-#
-# tasks:
-#   - id: "task-001"
-#     title: "Draft Q1 board update"
-#     description: "Prepare quarterly board update deck with metrics and narrative"
-#     status: "pending"
-#     priority: 2
-#     due_date: "2026-03-15"
-#     goal_alignment: "board-communication"
-#     created: "2026-01-15"
-#     notes: ""
-#
-#   - id: "task-002"
-#     title: "Review hiring pipeline"
-#     description: "Review all open roles and candidate pipeline with recruiting"
-#     status: "in_progress"
-#     priority: 3
-#     due_date: "2026-02-01"
-#     goal_alignment: "build-team"
-#     created: "2026-01-20"
-#     notes: "Sarah shared updated spreadsheet on Jan 25"
+  - id: "task-002"
+    title: "Add personal email to CLAUDE.md"
+    description: "Replace {{PERSONAL_EMAIL}} placeholder in CLAUDE.md line 120"
+    status: "pending"
+    priority: 3
+    due_date: "2026-02-28"
+    goal_alignment: "operational-setup"
+    created: "2026-02-25"
+    notes: ""
+
+  - id: "task-003"
+    title: "Finalize pitch deck"
+    description: "Complete all slides for the pre-seed pitch deck — problem, solution, market, product, model, traction, team, ask"
+    status: "in_progress"
+    priority: 1
+    due_date: "2026-03-07"
+    goal_alignment: "close-pre-seed"
+    created: "2026-02-25"
+    notes: "Original target was mid-February — revised timeline"
+
+  - id: "task-004"
+    title: "Complete data room"
+    description: "Assemble data room with pitch deck PDF, executive summary, financial projections, cap table, product roadmap, technical architecture overview"
+    status: "pending"
+    priority: 1
+    due_date: "2026-03-14"
+    goal_alignment: "close-pre-seed"
+    created: "2026-02-25"
+    notes: "See fundraising/materials.md for full checklist"
+
+  - id: "task-005"
+    title: "Revisit $450K pre-seed target"
+    description: "Line-by-line review of the budget. For every item ask: can an agent do this instead? Can we defer until post-revenue? Per Roberto Suris challenge."
+    status: "pending"
+    priority: 2
+    due_date: "2026-03-07"
+    goal_alignment: "close-pre-seed"
+    created: "2026-02-25"
+    notes: "Roberto challenged that $450K might be too high — need to interrogate assumptions"
+
+  - id: "task-006"
+    title: "Research incorporation — Delaware C-Corp"
+    description: "Evaluate entity type, research Delaware C-Corp process, costs, and timeline. Identify lawyer or service (Stripe Atlas, Clerky, etc.)"
+    status: "pending"
+    priority: 2
+    due_date: "2026-03-14"
+    goal_alignment: "incorporate"
+    created: "2026-02-25"
+    notes: ""
+
+  - id: "task-007"
+    title: "Define FrontPulse MVP scope with Alan"
+    description: "Align on exactly what ships in the MVP: which features are in, which are deferred. Document in product/roadmap.md"
+    status: "pending"
+    priority: 2
+    due_date: "2026-03-07"
+    goal_alignment: "ship-frontpulse-mvp"
+    created: "2026-02-25"
+    notes: "Need to sync with Alan on what's realistic for Q1"
+
+  - id: "task-008"
+    title: "Populate investor contact files"
+    description: "Create contact files in contacts/investors/ for all investors currently in conversation. Use the _template.md format."
+    status: "pending"
+    priority: 2
+    due_date: "2026-03-07"
+    goal_alignment: "close-pre-seed"
+    created: "2026-02-25"
+    notes: "The /fundraise and /pitch-prep commands need populated investor files to work"
+
+  - id: "task-009"
+    title: "Write Starting from Zero book note weekly"
+    description: "Capture at least one book note per week reflecting on the founder journey"
+    status: "in_progress"
+    priority: 4
+    due_date: "2026-03-31"
+    goal_alignment: "personal-growth"
+    created: "2026-02-25"
+    notes: "Recurring weekly habit — current note count: 8"
+
+  - id: "task-010"
+    title: "Set up 1:1 cadence with Alan"
+    description: "Define regular sync cadence (daily standup? weekly deep dive?) and document in team/alan.md"
+    status: "pending"
+    priority: 3
+    due_date: "2026-03-03"
+    goal_alignment: "ship-frontpulse-mvp"
+    created: "2026-02-25"
+    notes: ""

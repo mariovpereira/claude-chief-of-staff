@@ -1,52 +1,91 @@
-# Schedules — Automation Configuration
+# Schedules — Automation Configuration for Miami AI Lab
 #
-# Define recurring automations that Claude runs on schedule.
-# These require a cron-like scheduler to trigger Claude Code sessions.
+# PREFERRED: Use Claude Code hooks instead of cron.
+# Mario already has hooks infrastructure from the multi-agent observability setup.
+# Wire commands into SessionStart hooks so they run when you actually start working.
 #
-# See docs/setup-guide.md for how to set up automated scheduling.
+# Hook-based approach (recommended):
+#   - Morning briefing (/gm) → SessionStart hook (first session of the day)
+#   - Triage (/triage) → Manual invocation or midday hook
+#   - Weekly review (/weekly-review) → Manual, Friday afternoon
+#   - Meditate (/meditate) → End of substantive sessions
 #
-# Each schedule entry defines:
-#   - skill: The /command to run
-#   - frequency: Cron-like schedule description
-#   - enabled: Whether this automation is active
-#   - notes: What this automation does
+# Cron-based approach (fallback):
+#   See bottom of file for cron examples.
 
 schedules:
   - name: "Morning Briefing"
     skill: "/gm"
-    frequency: "Daily at 7:00am"
+    trigger: "SessionStart (first session of the day)"
     enabled: true
-    notes: "Full briefing with calendar, tasks, and urgent items"
+    notes: "Full briefing with calendar, tasks, goals, and urgent items. Integrates with Vestige memory."
 
   - name: "Midday Triage"
     skill: "/triage"
-    frequency: "Daily at 12:00pm"
+    trigger: "Manual or SessionStart (afternoon session)"
     enabled: true
     notes: "Scan all channels for items needing attention"
 
-  - name: "Evening Triage"
-    skill: "/triage"
-    frequency: "Daily at 5:00pm"
+  - name: "Post-Meeting Debrief"
+    skill: "/debrief"
+    trigger: "Manual — run within 30 minutes of important meetings"
     enabled: true
-    notes: "End of day inbox check"
+    notes: "Capture decisions, follow-ups, update contacts and pipeline"
+
+  - name: "Fundraise Dashboard"
+    skill: "/fundraise"
+    trigger: "Manual — run 2-3x per week during active raise"
+    enabled: true
+    notes: "Pipeline health, investor velocity, next actions"
 
   - name: "Task Check"
     skill: "/my-tasks overdue"
-    frequency: "Every 2 hours, 8am-8pm"
+    trigger: "SessionStart (if not running /gm)"
     enabled: true
     notes: "Warn about overdue or at-risk tasks"
 
+  - name: "Weekly Review"
+    skill: "/weekly-review"
+    trigger: "Manual — Friday afternoon"
+    enabled: true
+    notes: "Guided reflection, pattern surfacing, next week planning"
+
+  - name: "Session Reflection"
+    skill: "/meditate"
+    trigger: "Manual — end of substantive sessions"
+    enabled: true
+    notes: "Extract learnings, propose judgment rules, compound the system"
+
   - name: "Relationship Check"
     skill: "/enrich stale"
-    frequency: "Weekly, Monday at 9am"
-    enabled: false
-    notes: "Surface contacts that need attention"
+    trigger: "Manual — Monday morning after /gm"
+    enabled: true
+    notes: "Surface contacts that need attention, especially investors"
 
-# To set up automated scheduling, you need a way to trigger
-# Claude Code sessions on a schedule. Options:
+  - name: "Risk Check"
+    skill: "/what-am-i-missing"
+    trigger: "Manual — Wednesday midweek check-in"
+    enabled: true
+    notes: "Blind spot detection across commitments, relationships, capacity"
+
+# Hook integration notes:
 #
-# 1. macOS: Use cron or launchd to run `claude --command "/gm"`
-# 2. Linux: Use cron to run `claude --command "/gm"`
-# 3. Manual: Just type /gm when you start your day
+# Mario's existing hooks infrastructure is at:
+#   ~/agentic-workspace/claude-code-hooks-multi-agent-observability/
 #
-# Most users start with manual invocation and add automation later.
+# To wire /gm into SessionStart:
+#   Add to ~/.claude/hooks.json under "SessionStart":
+#   {
+#     "type": "command",
+#     "command": "echo 'Run /gm for morning briefing'",
+#     "triggers": ["session_start"]
+#   }
+#
+# Note: Claude Code hooks run shell commands, not slash commands directly.
+# The hook can inject a reminder into additionalContext that prompts Claude
+# to run /gm automatically. This is the same pattern used by the
+# multi-agent observability SessionStart hook.
+#
+# For true automation (no human in the loop):
+#   macOS: Use launchd to run `claude --command "/gm"` at 7:00am
+#   See docs/setup-guide.md for examples.

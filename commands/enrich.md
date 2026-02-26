@@ -15,6 +15,14 @@ Index: `~/.claude/contact-index.yaml` (optional, for quick lookups)
 
 ## Instructions
 
+### Memory Integration
+
+Before any enrichment operation, query Vestige (`recall`) for recent memories
+about the relevant contacts. After enrichment, use Vestige (`smart_ingest`)
+to persist any new relationship signals (new contacts detected, role changes,
+interaction velocity shifts). This ensures the CRM benefits from cross-session
+memory, not just channel scanning.
+
 ### /enrich all
 
 Scan connected channels for recent interactions and update contact files.
